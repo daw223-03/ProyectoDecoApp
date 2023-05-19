@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  decoappBD:
+    container_name: decoBD
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    ports:
+    - 8002:1433
+    environment:
+    - ACCEPT_EULA=Y
+    - SA_PASSWORD=password1234*5
+
+  decoapp4:
+    container_name: decoApp
+    image: ${DOCKER_REGISTRY-}decoapp4
+    build:
+      context: .
+      dockerfile: DecoApp4/Dockerfile
+    ports:
+    - 8001:80
+    depends_on:
+    - decoappBD
+
