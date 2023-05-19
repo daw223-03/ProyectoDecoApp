@@ -1,0 +1,624 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+}
+
+body {
+    height: 100%;
+    min-height: 100vh;
+    font-family: sans-serif;
+    display: grid;
+    grid-template-rows: 15% 80% 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*HEADER*/
+header {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    background-color: #8E2727;
+    color: white;
+    /*#8E2727; #A93B3B;#521E23*/
+}
+
+#tituloPrincipal {
+    font-size: 90px;
+    display: flex;
+    padding-left: 25%;
+}
+
+/*FOOTER*/
+footer {
+    background-color: #8E2727;
+    border-top: 8px solid #8E2727;
+    color: white;
+}
+
+/*MAIN*/
+#main {
+    width: 100%;
+    background-color: #D3CECD; /*#D3CECD;*/
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+/*HOME-INDEX*/
+
+#contenedorHome {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+/*Botones pagina principal*/
+    #contenedorBtnPrincipal {
+        display: grid;
+        grid-template-columns: 45% 45%;
+        gap: 2%;
+        margin: 10%
+    }
+
+.btnPrincipal {
+    height: 100%;
+    font: 500;
+    font-size: 2em;
+    background-color: #8E2727;
+    border: 3px solid black;
+    color: white;
+}
+
+    .btnPrincipal:hover {
+        font: bold;
+        font-size:2.1em;
+        border: 4px solid black;
+    }
+
+#contenedorCitasHome {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+}
+
+#contenedorCitasHome h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    color: black;
+}
+
+#contenedorCitas {
+    padding: 5% 10% 5% 10%;
+    border: 4px solid black;
+    height: 90%;
+    width: 95%;
+}
+
+/*tabla citas*/
+    #tablaCitas {
+        border: 1px solid black;
+        width: 100%;
+        color:black;
+    }
+
+    #tablaCitas tr {
+        border: 1px solid black;
+        height: 3em;
+    }
+    #tablaCitas th {
+        border: 1px solid black;
+        height: 3em;
+        font:100;
+        color: black;
+     }
+
+    #tablaCitas tbody tr {
+        height: 4em;
+    }
+
+    #tablaCitas tbody tr:hover {
+        border: 2px solid black;
+        font: bold;
+    }
+
+
+
+
+/*NOTONERA CONTROL COMPARTIDA*/
+/*BOTONES CONTROL, ATRAS NUEVO, INICIO, BORRAR*/
+
+
+.btnControl {
+    border: 2px solid black;
+    background-color: #8E2727;
+    color: white;
+    font-weight: bold;
+    border-radius: 10%;
+    width: 10em;
+    height: 3em;
+}
+
+    .btnControl:hover {
+        border: 3px solid black;
+        color: white;
+        background-color: #8E2727;
+        font-size: 1.1em;
+        border-radius: 10%;
+        width: 10em;
+        height: 3em;
+    }
+/*BotonesIndex*/
+#btnControl{
+    padding-left: 5%;
+    gap: 3%;
+    display: flex;
+    align-items: center;
+}
+
+.contenedorDesplegable {
+    display: none;
+}
+.desplegable {
+    font-size: 1.5em;
+    background-color: #8E2727;
+    border:1px solid black
+}
+.desplegable:hover {
+    border: 2px solid black
+}
+.desplegable2 {
+    margin-right:0%;
+    font-size: 1em;
+    width:120px;
+    background-color: #8E2727;
+    border: 1px solid black
+}
+
+    .desplegable2:hover {
+        border: 2px solid black
+    }
+
+
+
+
+
+
+
+
+/*TABLAS COMPARTIDA*/
+table tbody {
+    color: black;
+    border-bottom: 1px solid white;
+}
+.tbDetalle:hover {
+    font-weight: bold;
+}
+table tbody tr:hover {
+     border: 2px solid black;
+}
+table thead {
+    color: black;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*INDEX COMPARTIDO*/
+.index {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 10% 20% 50% 20%;
+}
+
+.tituloIndex {
+    padding-left: 2%;
+    display: flex;
+    align-items: center;
+    color:black;
+}
+
+    /*Buscador*/
+    .buscadorIndex {
+        border-top: 1px solid #8E2727;
+        display: flex;
+        flex-direction: row;
+        padding-left: 3%;
+        gap: 10%;
+        align-items: center;
+    }
+    .buscadorIndex form {
+        width:100%;
+    }
+    #esta:hover option {
+        background-color: #8E2727;
+        color:white;
+    }
+    .buscadorIndex label {
+            color: black;
+            font-size:1.2em;
+    }
+    #btnEnvioBuscador {
+        border: 1px solid #8E2727;
+        color: #8E2727;
+        font-weight: bold;
+        border-radius: 10%;
+    }
+    #btnEnvioBuscador:hover {
+        border: 1px solid black;
+       color: white;
+        background-color: #8E2727;
+         border-radius: 10%;
+    }
+    .inputBuscador {
+        color: #8E2727;
+        margin-right: 2%;
+        border: 2px solid #8E2727;
+    }
+
+    /*InformacionIndex*/
+    .infoIndex {
+        padding: 3%;
+    }
+
+
+/*INDEX ESTADO*/
+
+.indexEstado {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 10% 70% 20%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*DETALLE COMPARTIDO*/
+.detalle {
+    height: 100%;
+    max-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 15% 65% 20%;
+}
+
+.tituloDetalle {
+    padding-left: 2%;
+    display: flex;
+    align-items: center;
+}
+
+
+/*INFORMACION*/
+    /*Descripcion*/
+    .infoDetalle {
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+    .indet {
+        display: flex;
+        flex-direction:column;
+        margin-left:5%;
+        gap:6%;
+        font-size:1.3em;
+    }
+        #indet div {
+            display: grid;
+            grid-template-columns: 30% 70%;
+        }
+        #indet div:hover {
+            border-bottom:1px solid black;
+        }
+    .indetDescripcion{
+        color:black;
+        font-weight:bold;
+        margin-right:5%;
+    }
+
+
+
+
+
+    /*Edit*/
+.edit {
+    display: none;
+
+}
+.edit div{
+    display:grid
+}
+.InputEdit {
+    background: inherit;
+    border: inherit;
+    border-bottom: 1px solid black;
+}
+.labelEdit {
+    color: black;
+    font-weight: bold;
+    margin-right: 5%;
+}
+    #btnEnvioEdit {
+        margin-top:3%;
+        border: 1px solid #8E2727;
+        color: #8E2727;
+        font-weight: bold;
+        border-radius: 10%;
+        width:20%
+    }
+        #btnEnvioEdit:hover {
+            border: 1px solid black;
+            color: white;
+            background-color: #8E2727;
+        }
+
+
+
+
+/*tarea*/
+#opDetalles {
+    width: 95%;
+    overflow:auto;
+    
+}
+
+#tareasFacturas {
+    display: none;
+}
+.descripcion{
+    width:100%;
+}
+.numE {
+    width: 10%;
+    margin-bottom:2%;
+}
+.tarea{
+    margin-bottom:5%;
+    border-bottom:1px solid red;
+}
+
+
+
+
+
+/*VerCcitas, facturas y obras*/
+.contCliente {
+    background: inherit;
+    border: inherit;
+    width:50%;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    margin:1%;
+}
+
+.InputEdit:disabled{
+    color:black;
+}
+
+
+
+
+
+/*CREAR COMPARTIDO*/
+.crear {
+    height: 100%;
+    max-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 15% 65% 20%;
+}
+.formularioCreacion{
+    gap:5%;
+    margin-left:5%;
+    margin-left:5%;
+    margin-top:2%;
+    width:40%;
+}
+#formularioCreacionCliente{
+    margin-top:0%;
+}
+
+.formularioCreacion div {
+    display: grid;
+}
+#opCreate {
+    overflow: auto;
+}
+
+
+
+
+
+
+
+
+/*TABLAS EN COMUN CALENDARO*/
+#contenedorMes {
+    width: 100%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,20%);
+    grid-template-rows: repeat(auto-fit,85px);
+}
+
+#selectMes {
+    display: flex;
+    margin-top: 3%;
+    align-items: center;
+    justify-content: center;
+}
+
+.dia {
+    padding: 10%;
+    
+    border: 1px solid black;
+    display:flex;
+    flex-direction:column;
+    overflow-y:auto;
+     
+}
+.labelCalendario {
+    border: 1px solid #8E2727;
+
+}
+.labelCalendario:hover {
+    border: 2px solid black;
+    font:bolder;
+}
+.CitaCalendario:hover {
+    background-color: #FAACAC;
+}
+.ObraCalendario:hover {
+    background-color: #F97F7F;
+}
+.btnCambiarMes {
+    border: 1px solid #8E2727;
+    color: #8E2727;
+    font-weight: bold;
+    border-radius: 10%;
+    width: 2%;
+    height: 5%;
+}
+    .btnCambiarMes:hover {
+        border: 2px solid black;
+        color: white;
+        background-color: #8E2727;
+        font-weight: bold;
+        border-radius: 10%;
+    }
+
+/*CASILLA del CLIENTE TABLA-CALENDARIO*/
+.columCliente:hover {
+    font: bold;
+    color: darkred;
+}
+
+.columTablas:hover {
+    font: bold;
+    border: 2px solid black;
+}
+
+
+
+
+
+
+
+/*PDF*/
+#pdfLogo {
+    width: 25%;
+}
+
+#pdfEmpresa {
+    width: 40%;
+    background-color: #EA8A30;
+    -webkit-column-gap:3%;
+}
+#pdfEmpresa label {
+    margin:2%;
+}
+
+#pdfTabla{
+    width:100%;
+}
+
+#pdfInfo {
+    width: 100%;
+}
+/*contrasenia*/
+.passwd {
+    -webkit-text-security: disc; /* Default */
+    position: absolute;
+}
+
+.passwdMostrar {
+    -webkit-text-security: none; /* Default */
+    position: absolute;
+}
+
+
+
+/*Borrar dialogo pregunta*/
+#dialog {
+    display:none;
+
+}
+#dialogF {
+    display: none;
+}
+
+
+
+
+/*autocomplete*/
+
+li.ui-menu-item {
+    background: white;
+    border:1px solid black;
+}
+.ui-menu-item .ui-menu-item-wrapper.ui-state-active {
+    background: #8E2727;
+    color: white;
+}
+.ui-dialog-buttonset button:hover {
+    background: #8E2727;
+    color:white;
+}
