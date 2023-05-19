@@ -52,8 +52,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 IWebHostEnvironment env = app.Environment;
-Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, "../Rotativa");
-//Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, string.Empty);
+//Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, "../Rotativa"); Para windows en fisico
+Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, string.Empty);
 
 
 app.Run();
