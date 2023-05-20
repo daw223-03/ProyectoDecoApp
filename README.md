@@ -7,3 +7,9 @@
  2.- Desde /Proyecto ejecutar comando docker-compose up -d
  ``` 
 # Segunda forma
+
+
+# Funcionamiento programa
+```python
+- En la memoria del proyecto estan las instrucciones y explicaciones.
+ ``` 
