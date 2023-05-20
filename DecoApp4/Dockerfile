@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
 RUN apt-get update && apt-get install -y wget fontconfig libfontconfig1 libjpeg62-turbo libxrender1 xfonts-75dpi xfonts-base libxext6 git
-RUN https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_amd64.deb
+RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_amd64.deb
 RUN dpkg -i wkhtmltox_0.12.6.1-2.bullseye_amd64.deb
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
