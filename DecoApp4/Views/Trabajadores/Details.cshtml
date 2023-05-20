@@ -1,0 +1,112 @@
+﻿@model DecoApp4.Models.Trabajadore
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="detalle">
+    <h1 class="tituloDetalle">Trabajador: @Html.DisplayFor(model => model.Nombre)</h1>
+    <div id="dialog" title="Borrar Trabajador">
+        <p>Vas a eliminar el trabajador: @Html.DisplayFor(model => model.Nombre)</p>
+    </div>
+    <div class="infoDetalle" id="opDetalles">
+        <div class="indet">
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Nombre)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Dni)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Dni)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Telefono)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Direccion)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Email)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Email)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Obra)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Obra.Direccion)
+                </label>
+            </div>
+        </div>
+
+            <div id="edit" class="edit" value=0>
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="labelEdit"></label>
+                        <input asp-for="Nombre" class="InputEdit" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Dni" class="labelEdit"></label>
+                        <input asp-for="Dni" class="InputEdit" />
+                        <span asp-validation-for="Dni" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Telefono" class="labelEdit"></label>
+                        <input asp-for="Telefono" class="InputEdit" />
+                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Direccion" class="labelEdit"></label>
+                        <input asp-for="Direccion" class="InputEdit" />
+                        <span asp-validation-for="Direccion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="labelEdit"></label>
+                        <input asp-for="Email" class="InputEdit" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ObraActiva" class="labelEdit"></label>
+                        <input type="text" name="obra" id="obra" class="InputEdit" onclick="autocompletarCliente('Obras', '#obra','#ObraActiva')">
+                        <input type="hidden" id="ObraActiva" name="ObraActiva" class="InputEdit">
+                        <span asp-validation-for="ObraActiva" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Guardar" class="inputBuscador" id="btnEnvioEdit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml" />
+        <partial name="../Home/BotonAtras.cshtml" />
+        <partial name="../Home/BotonNuevo.cshtml" />
+        <partial name="../Home/BotonEditar.cshtml" />
+        <partial name="../Home/BotonBorrar.cshtml" />
+    </div>
+</div>
