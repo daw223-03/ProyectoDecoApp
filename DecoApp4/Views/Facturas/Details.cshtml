@@ -97,17 +97,20 @@
             <div id="tareasFacturas">
                 <div class="tarea">
                     <input type="hidden" class="idTarea" name="IdTarea" id="IdTarea" />
-                    <label class="labelEdit">Descripcion</label><input type="text" class="descripcion InputEdit" name="Descripcion" /><br /><br />
-                    <label class="labelEdit">Precio</label><input id=1 type="number" class="precio InputEdit numE" name="Precio" />
-                    <label class="labelEdit">Cantidad</label><input id=1 type="number" class="cantidad InputEdit numE" name="Cantidad" />
-                    <label class="labelEdit">Descuento</label><input id=1 type="number" class="descuento InputEdit numE" name="Descuento" />
-                    <label asp-for="Estado" class="labelEdit"></label>
-                    <input type="text" name="est" id="est" class="estado InputEdit" onclick="autocompletarEstado(this)">
-                    <input type="hidden" id="estadoT" name="Estado">
-                    <span asp-validation-for="Estado" class="text-danger"></span>
+                    <label class="labelEdit">Descripcion</label><input required type="text" class="descripcion InputEdit" name="Descripcion" /><br /><br />
+                    <label class="labelEdit">Precio</label><input required type="number" class="precio InputEdit numE" name="Precio" />
+                    <label class="labelEdit">Cantidad</label><input required type="number" class="cantidad InputEdit numE" name="Cantidad" />
+                    <label class="labelEdit">Descuento</label><input required type="number" class="descuento InputEdit numE" name="Descuento" />
+                   
+                    <!--<label asp-for="Estado" class="labelEdit"></label>
+                    <input type="text" name="est"  class="estado InputEdit" onclick="autocompletarEstado(this)">
+                    <input type="hidden"  name="Estado">
+                    <span asp-validation-for="Estado" class="text-danger"></span>-->
                 </div>
                 <button id="addTarea" onclick="addTareaLista()" class="inputBuscador">+</button>
-                <button id="guardarTarea" onclick="guardarTarea()" class="inputBuscador">Guardar</button>
+                    <button id="guardarTarea" onclick="guardarTarea()" class="inputBuscador">Guardar</button>
+            </div>
+            <div id="tareasFacturas2">
             </div>
         </div>
     </div>

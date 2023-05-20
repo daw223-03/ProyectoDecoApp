@@ -11,6 +11,7 @@ public partial class Factura
     public string NombreFactura { get; set; } = null!;
 
     public int? IdCliente { get; set; }
+    [Required(ErrorMessage = "Campo obligatorio")]
     [DataType(DataType.Date)]
     public DateTime Fecha { get; set; }
     public int Iva { get; set; }

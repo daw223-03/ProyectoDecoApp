@@ -16,37 +16,6 @@
     <script src="~/css/Funciones.js"></script>
 </head>
 <body id="pdf">
-    <!--<div id="pdfHead" >
-        <div>
-        <div id="pdfLogo">Imagen</div>
-        <div id="pdfEmpresa">
-            <label>@Html.DisplayFor(model => model.Empresa.Nombre)</label><br />
-            <label>@Html.DisplayFor(model => model.Empresa.Direccion)</label><br />
-            <label>CP @Html.DisplayFor(model => model.Empresa.Cp)</label><br />
-            <label> Tel @Html.DisplayFor(model => model.Empresa.Telefono)</label><br />
-            <label>@Html.DisplayFor(model => model.Empresa.Email)</label><br />
-            <label>N.I.F: @Html.DisplayFor(model => model.Empresa.Cif)</label>
-        </div>
-        <div id="pdfFactura">
-            <label>Factura nº: @Html.DisplayFor(model => model.Id)</label><br />
-            <label id="fact">Factura</label>
-        </div>
-        </div>
-        <div>
-        <div id="pdfCliente">
-            <fieldset>
-                <legend>Cliente</legend>
-                <div id="clienNom">Nombre <label>@Html.DisplayFor(model => model.Cliente.Nombre)</label></div>
-                <div id="clienDir">Direccion <label>@Html.DisplayFor(model => model.Cliente.Direccion)</label></div>
-                <div id="clienPob">Poblacion <label>@Html.DisplayFor(model => model.Cliente.Poblacion)</label></div>
-                <div id="clienCiu">Ciudad <label>@Html.DisplayFor(model => model.Cliente.Ciudad)</label></div>
-                <div id="Cp">Nombre <label>@Html.DisplayFor(model => model.Cliente.Cp)</label></div>
-                <div id="Dni">Nombre <label>@Html.DisplayFor(model => model.Cliente.Dni)</label></div>
-            </fieldset>
-        </div>
-        <div id="pdfFecha">Fecha <label>@Html.DisplayFor(model => model.Fecha)</label> </div>
-    </div>
-    </div>-->
     <div id="pdfInfo">
         <table class="pdfTablaHead" width="100%">
             <tr>
@@ -118,21 +87,32 @@
                             total = total + (float)item.Precio;
                             i++;
                         <tr height="25px">
-                            <td width="10%" style="border-right: 1px dotted grey;">
-                                @Html.DisplayFor(modelItem => item.Cantidad)
-                            </td>
-                            <td width="60%">
-                                @Html.DisplayFor(modelItem => item.Descripcion)
-                            </td>
-                            <td width="7%">
-                                    @Html.DisplayFor(modelItem => item.Precio)€
-                            </td > 
-                            <td width="5%">
-                                @Html.DisplayFor(modelItem => item.Descuento)
-                            </td >
+                                <td width="10%" style="border-right: 1px dotted grey;">
+
+                                    @if (item.Cantidad != 0)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.Cantidad)
+                                    }
+                                </td>
+                                <td width="60%">
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                                <td width="7%">
+                                    @if (item.Precio != 0)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.Precio)
+                                    }€
+
+                                </td>
+                                <td width="5%">
+                                    @if (item.Descuento != 0)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.Descuento)
+                                    }%
+                                </td>
                                 <td width="13%" style="border-left: 2px solid black;border-collapse: collapse;border-bottom:1px solid grey; text-align:right">
-                                @Html.DisplayFor(modelItem => item.Precio)€
-                            </td>
+                                    @Html.DisplayFor(modelItem => item.Precio)€
+                                </td>
                         </tr> 
                         }
                     }

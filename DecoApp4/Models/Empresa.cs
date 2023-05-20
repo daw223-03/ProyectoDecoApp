@@ -23,6 +23,7 @@ public partial class Empresa
     public string? Poblacion { get; set; }
     [Required(ErrorMessage = "Campo obligatorio")]
     public string Ciudad { get; set; } = null!;
+    [Required(ErrorMessage = "Campo obligatorio")]
     [StringLength(5)]
     public string? Cp { get; set; }
 

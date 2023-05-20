@@ -13,8 +13,10 @@ public partial class Obra
     public int? IdCliente { get; set; }
     [Required(ErrorMessage = "Campo obligatorio")]
     public string Cp { get; set; } = null!;
+    [Required(ErrorMessage = "Campo obligatorio")]
     [DataType(DataType.Date)]
     public DateTime FechaInicio { get; set; }
+    [Required(ErrorMessage = "Campo obligatorio")]
     [DataType(DataType.Date)]
     public DateTime? FechaFinal { get; set; }
 
