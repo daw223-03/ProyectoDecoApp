@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DecoApp4.Models.Materiale>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="index">
+    <h1 class="tituloIndex">Materiales</h1>
+    <div class="buscadorIndex">
+        <form asp-action="Index">
+                <label>Nombre</label>
+            <input type="text" name="nom" id="nom" class="inputBuscador" />
+            <input type="submit" value="buscar" id="btnEnvioBuscador" class="inputBuscador" />
+        </form>
+    </div>
+    <div class="infoIndex" id="opDetalles">
+        <table class="table" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td onclick="mostrarDetalles(@item.Id, 'Materiales')" class="tbDetalle">
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml" />
+        <partial name="../Home/BotonNuevo.cshtml" />
+    </div>
+</div>

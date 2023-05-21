@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DecoApp4.Models.Cita>
+ @{   TimeSpan aux = new TimeSpan();}
+
+<h1 >Citas de hoy</h1>
+<div id="contenedorCitas" id="opDetalles">
+<table id="tablaCitas" class="tablas" style="color:white;">
+    <thead>
+        <tr>
+                <th >
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comentario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="filas">
+         <td onclick="mostrarDetalles(@item.Id, 'Citas')">
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+        <td onclick="mostrarDetalles(@item.Id, 'Citas')">
+                        @if (item.Hora == aux)
+                        {
+
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Hora)
+                        }
+            </td>
+        <td onclick="mostrarDetalles(@item.Id, 'Citas')">
+                @Html.DisplayFor(modelItem => item.Comentario)
+            </td>
+                    @if(item.Cliente != null)
+                    {
+                        <td onclick="mostrarDetalles(@item.Cliente.Id, 'Clientes')">
+                            @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                        
+                    }
+        </tr>
+}
+    </tbody>
+</table>
+</div>

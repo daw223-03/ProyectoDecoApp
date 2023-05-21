@@ -1,0 +1,115 @@
+﻿@model DecoApp4.Models.Obra
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="detalle">
+    <h1 class="tituloDetalle">Obra: @Html.DisplayFor(model => model.Direccion)</h1>
+    <div id="dialog" title="Borrar Obra">
+        <p>Vas a eliminar la obra: @Html.DisplayFor(model => model.Direccion)</p>
+    </div>
+    <div class="infoDetalle" id="opDetalles">
+        <div class="indet">
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Direccion)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Cp)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Cp)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.FechaInicio)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.FechaInicio)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.FechaFinal)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.FechaFinal)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Cliente)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Cliente.Id)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Estado)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Estado.Id)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Factura)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Factura.Id)
+                </label>
+            </div>
+        </div>
+
+            <div id="edit" class="edit" value=0>
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Direccion" class="labelEdit"></label>
+                    <input asp-for="Direccion" class="InputEdit" />
+                    <span asp-validation-for="Direccion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cliente" class="labelEdit"></label>
+                    <input type="text" name="inputCliente" id="inputCliente" class="InputEdit" onclick="autocompletarCliente('Clientes', '#inputCliente','#IdCliente')">
+                    <input type="hidden" id="IdCliente" name="IdCliente" class="InputEdit">
+                    <span asp-validation-for="IdCliente" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cp" class="labelEdit"></label>
+                    <input asp-for="Cp" class="InputEdit" />
+                    <span asp-validation-for="Cp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FechaInicio" class="labelEdit"></label>
+                    <input asp-for="FechaInicio" class="InputEdit" />
+                    <span asp-validation-for="FechaInicio" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FechaFinal" class="labelEdit"></label>
+                    <input asp-for="FechaFinal" class="InputEdit" />
+                    <span asp-validation-for="FechaFinal" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                        <input type="submit" value="Save" class="inputBuscador" id="btnEnvioEdit" />
+                </div>
+            </form>
+        </div>
+    </div>
+        <div id="btnControl">
+            <partial name="../Home/BotonInicio.cshtml" />
+            <partial name="../Home/BotonAtras.cshtml" />
+            <partial name="../Home/BotonNuevo.cshtml" />
+            <partial name="../Home/BotonEditar.cshtml" />
+            <partial name="../Home/BotonBorrar.cshtml" />
+        </div>
+</div>
+

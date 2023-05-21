@@ -1,0 +1,76 @@
+﻿@model IEnumerable<DecoApp4.Models.Factura>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="index">
+    <h1 class="tituloIndex">Facturas</h1>
+    <div class="buscadorIndex">
+        <form asp-action="Index">
+            <select id="esta" name="esta" class="inputBuscador">
+                <option class="opSelect" value=0>mostarr todo</option>
+                <option class="opSelect" value=1>finalizxado</option>
+                <option class="opSelect" value=2>disponible</option>
+            </select>
+                <label>Nombre</label>
+            <input type="text" name="nom" id="nom" class="inputBuscador" />
+            <label>Cliente</label>
+            <input type="text" name="nomCliente" id="nomCliente" class="inputBuscador" />
+                <label>Fecha Iniccial</label>
+            <input type="date" name="fechaInicial" id="fechaInicial" class="inputBuscador" />
+                <label>Fecha Final</label>
+            <input type="date" name="fechaFinal" id="fechaFinal" class="inputBuscador" />
+                <input type="submit" value="buscar" id="btnEnvioBuscador" class="inputBuscador" />
+        </form>
+    </div>
+    <div class="infoIndex" id="opDetalles">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Iva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+         <td onclick="mostrarDetalles(@item.Id, 'Facturas')" class="tbDetalle">
+                @Html.DisplayFor(modelItem => item.NombreFactura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iva)%
+            </td>
+             <td onclick="mostrarDetalles(@item.Id, 'Clientes')" class="tbDetalle">
+                @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado.Nombre)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml" />
+        <partial name="../Home/BotonNuevo.cshtml" />
+    </div>
+</div>
