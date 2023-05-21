@@ -3,7 +3,7 @@
 
 # Primera forma instalacion:
 ```python
-De esta forma nos descargariamos tod=a la carpeta del proyecto
+De esta forma nos descargariamos toda la carpeta del proyecto
  1.- git clone https://github.com/daw223-03/Proyecto.git
  2.- Desde /Proyecto ejecutar comando docker-compose up -d
  ``` 
@@ -18,6 +18,6 @@ De esta forma nos descargariamos unicamente un docker-compose.yml, que lleva las
 
 # Funcionamiento programa
 ```python
-Para entrar http://:8001
+Para entrar http://85.208.20.125:8001
 - En la memoria del proyecto estan las instrucciones y explicaciones.
  ``` 
