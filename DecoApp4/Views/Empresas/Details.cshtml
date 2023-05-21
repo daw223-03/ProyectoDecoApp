@@ -1,0 +1,142 @@
+﻿@model DecoApp4.Models.Empresa
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="detalle">
+    <h1 class="tituloDetalle">Empresa: @Html.DisplayFor(model => model.Nombre)</h1>
+    <div id="dialog" title="Borrar Empresa">
+        <p>Vas a eliminar el empresa: @Html.DisplayFor(model => model.Nombre)</p>
+    </div>
+    <div class="infoDetalle" id="opDetalles">
+        <div class="indet">
+            <input type="hidden" value="@Html.DisplayFor(model => model.Id)" id="ID" />
+            <div>
+                <label class="indetDescripcion">
+            @Html.DisplayNameFor(model => model.Nombre)
+                </label>
+                <label>
+            @Html.DisplayFor(model => model.Nombre)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+            @Html.DisplayNameFor(model => model.Cif)
+                </label>
+                <label>
+            @Html.DisplayFor(model => model.Cif)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+            @Html.DisplayNameFor(model => model.Telefono)
+                </label>
+                <label>
+            @Html.DisplayFor(model => model.Telefono)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+            @Html.DisplayNameFor(model => model.Direccion)
+                </label>
+                <label>
+            @Html.DisplayFor(model => model.Direccion)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+            @Html.DisplayNameFor(model => model.Email)
+                </label>
+                <label>
+            @Html.DisplayFor(model => model.Email)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+            @Html.DisplayNameFor(model => model.Poblacion)
+                </label>
+                <label>
+            @Html.DisplayFor(model => model.Poblacion)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+            @Html.DisplayNameFor(model => model.Ciudad)
+                </label>
+                <label>
+            @Html.DisplayFor(model => model.Ciudad)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+            @Html.DisplayNameFor(model => model.Cp)
+                </label>
+                <label>
+            @Html.DisplayFor(model => model.Cp)
+                </label>
+            </div>
+
+        </div>
+
+        <div>
+            <div id="edit" class="edit">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="labelEdit"></label>
+                        <input asp-for="Nombre" class="InputEdit" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cif" class="labelEdit"></label>
+                        <input asp-for="Cif" class="InputEdit" />
+                        <span asp-validation-for="Cif" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Telefono" class="labelEdit"></label>
+                        <input asp-for="Telefono" class="InputEdit" />
+                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Direccion" class="labelEdit"></label>
+                        <input asp-for="Direccion" class="InputEdit" />
+                        <span asp-validation-for="Direccion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="labelEdit"></label>
+                        <input asp-for="Email" class="InputEdit" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Poblacion" class="labelEdit"></label>
+                        <input asp-for="Poblacion" class="InputEdit" />
+                        <span asp-validation-for="Poblacion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Ciudad" class="labelEdit"></label>
+                        <input asp-for="Ciudad" class="InputEdit" />
+                        <span asp-validation-for="Ciudad" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cp" class="labelEdit"></label>
+                        <input asp-for="Cp" class="InputEdit" />
+                        <span asp-validation-for="Cp" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="inputBuscador" id="btnEnvioEdit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml" />
+        <partial name="../Home/BotonAtras.cshtml" />
+        <partial name="../Home/BotonNuevo.cshtml" />
+        <partial name="../Home/BotonEditar.cshtml" />
+        <partial name="../Home/BotonBorrar.cshtml" />
+    </div>
+</div>

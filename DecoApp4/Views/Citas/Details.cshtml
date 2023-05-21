@@ -1,0 +1,96 @@
+﻿@model DecoApp4.Models.Cita
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="detalle">
+    <h1 class="tituloDetalle">Cita: @Html.DisplayFor(model => model.Id)</h1>
+    <div id="dialog" title="Borrar Cita">
+        <p>Vas a eliminar la cita: @Html.DisplayFor(model => model.Id)</p>
+    </div>
+    <div class="infoDetalle" >
+        <div class="indet">
+            <input type="hidden" value="@Html.DisplayFor(model => model.Id)" id="ID" />
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Fecha)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Hora)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Hora)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Comentario)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Comentario)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Cliente)
+                </label>
+                @if(Model.Cliente != null)
+                {
+                    <label  id="clien" onclick="mostrarDetalles(@Model.Cliente.Id,'Clientes')">
+                        @Html.DisplayFor(model => model.Cliente.Nombre)
+                    </label>
+                    
+                }else{
+                    <label id="clien" >
+                    </label>
+                }
+
+            </div>
+        </div>
+        <div id="opDetalles">
+        <div id="edit" class="edit">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Fecha" class="labelEdit"></label>
+                    <input asp-for="Fecha" class="InputEdit" />
+                    <span asp-validation-for="Fecha" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Hora" class="labelEdit"></label>
+                    <input asp-for="Hora" class="InputEdit" />
+                    <span asp-validation-for="Hora" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Comentario" class="labelEdit"></label>
+                    <input asp-for="Comentario" class="InputEdit" />
+                    <span asp-validation-for="Comentario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdCliente" class="labelEdit"></label>
+                    <input type="text" name="inputCliente" id="inputCliente" class="InputEdit" onclick="autocompletarCliente('Clientes', '#inputCliente','#IdCliente')">
+                    <input type="hidden" id="IdCliente" name="IdCliente">
+                    <span asp-validation-for="IdCliente" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="inputBuscador" id="btnEnvioEdit" />
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+        <div id="btnControl">
+            <partial name="../Home/BotonInicio.cshtml" />
+            <partial name="../Home/BotonAtras.cshtml" />
+            <partial name="../Home/BotonNuevo.cshtml" />
+            <partial name="../Home/BotonEditar.cshtml" />
+            <partial name="../Home/BotonBorrar.cshtml" />
+        </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@model DecoApp4.Models.Estado
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="detalle">
+    <h1 class="tituloDetalle">Estado: @Html.DisplayFor(model => model.Nombre)</h1>
+    <div id="dialog" title="Borrar Estado">
+        <p>Vas a eliminar el estado: @Html.DisplayFor(model => model.Nombre)</p>
+    </div>
+    <div class="infoDetalle" id="opDetalles">
+        <div class="indet">
+            <input type="hidden" value="@Html.DisplayFor(model => model.Id)" id="ID" />
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Id)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Id)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+            @Html.DisplayNameFor(model => model.Nombre)
+                </label>
+                <label>
+            @Html.DisplayFor(model => model.Nombre)
+                </label>
+            </div>
+
+        </div>
+
+        <div>
+            <div id="edit" class="edit">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="control-label"></label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml" />
+        <partial name="../Home/BotonAtras.cshtml" />
+        <partial name="../Home/BotonNuevo.cshtml" />
+        <partial name="../Home/BotonEditar.cshtml" />
+        <partial name="../Home/BotonBorrar.cshtml" />
+    </div>
+</div>

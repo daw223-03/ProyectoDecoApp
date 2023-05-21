@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DecoApp4.Models.Estado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="indexEstado">
+    <h1 class="tituloIndex">Estados</h1>
+
+    <div class="infoIndexEstado">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml" />
+        <partial name="../Home/BotonNuevo.cshtml" />
+    </div>
+</div>

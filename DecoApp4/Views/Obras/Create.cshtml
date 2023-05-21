@@ -1,0 +1,62 @@
+﻿@model DecoApp4.Models.Obra
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="crear">
+    <h1 class="tituloDetalle">Nueva Obra: @Html.DisplayFor(model => model.Id)</h1>
+
+    <div class="formularioCreacion" id="opCreate">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Direccion" class="labelEdit"></label>
+                <input asp-for="Direccion" class="InputEdit" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente" class="labelEdit"></label>
+                <input required type="text" name="inputCliente" id="inputCliente" class="InputEdit" onclick="autocompletarCliente('Clientes', '#inputCliente','#IdCliente')">
+                <input required type="hidden" id="IdCliente" name="IdCliente">
+            </div>
+            <div class="form-group">
+                <label asp-for="Cp" class="labelEdit"></label>
+                <input asp-for="Cp" class="InputEdit" />
+                <span asp-validation-for="Cp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaInicio" class="labelEdit"></label>
+                <input asp-for="FechaInicio" class="InputEdit" />
+                <span asp-validation-for="FechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaFinal" class="labelEdit"></label>
+                <input asp-for="FechaFinal" class="InputEdit" />
+                <span asp-validation-for="FechaFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado" class="labelEdit"></label>
+                <input required type="text" name="est" id="est" class="InputEdit" onclick="autocompletarCliente('Estado', '#est','#IdEstado')">
+                <input required type="hidden" id="IdEstado" name="IdEstado">
+            </div>
+            <div class="form-group">
+                <label asp-for="Factura" class="labelEdit"></label>
+                <input required type="text" name="fact" id="fact" class="InputEdit" onclick="autocompletarCliente('Factura', '#fact','#IdFactura')">
+                <input required type="hidden" id="IdFactura" name="IdFactura">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="inputBuscador" id="btnEnvioEdit" />
+            </div>
+        </form>
+    </div>
+    <div id="btnControl">
+    <partial name="../Home/BotonInicio.cshtml" />
+    <partial name="../Home/BotonAtras.cshtml" />
+</div>
+</div>
+@section Scripts {
+    @{
+        <partial name="../Shared/_ValidationScriptsPartial.cshtml" />
+    }
+}

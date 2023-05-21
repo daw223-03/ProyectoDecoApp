@@ -1,0 +1,46 @@
+﻿@model DecoApp4.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="crear">
+    <h1 class="tituloDetalle">Nuevo Usuario: @Html.DisplayFor(model => model.Id)</h1>
+
+    <div class="formularioCreacion">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="labelEdit"></label>
+                <input asp-for="Nombre" class="InputEdit" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="labelEdit"></label>
+                <input asp-for="UserName" class="InputEdit" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="labelEdit"></label>
+                <input asp-for="Password" class="InputEdit" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="inputBuscador" id="btnEnvioEdit" />
+            </div>
+        </form>
+    </div>
+
+
+
+<div id="btnControl">
+    <partial name="../Home/BotonInicio.cshtml" />
+    <partial name="../Home/BotonAtras.cshtml" />
+</div>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="../Shared/_ValidationScriptsPartial.cshtml" />
+    }
+}
