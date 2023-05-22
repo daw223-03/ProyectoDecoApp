@@ -1,0 +1,73 @@
+﻿@model DecoApp4.Models.Materiale
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="detalle">
+    <h1 class="tituloDetalle">Material: @Html.DisplayFor(model => model.Nombre)</h1>
+    <div id="dialog" title="Borrar Material">
+        <p>Vas a eliminar el material: @Html.DisplayFor(model => model.Nombre)</p>
+    </div>
+    <div class="infoDetalle">
+        <div class="indet">
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Nombre)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Cantidad)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Cantidad)
+                </label>
+            </div>
+            <div>
+                <label class="indetDescripcion">
+                    @Html.DisplayNameFor(model => model.Precio)
+                </label>
+                <label>
+                    @Html.DisplayFor(model => model.Precio)
+                </label>
+            </div>
+        </div>
+        <div id="opDetalles">
+        <div id="edit" class="edit">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Nombre" class="labelEdit"></label>
+                    <input asp-for="Nombre" class="InputEdit" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cantidad" class="labelEdit"></label>
+                    <input asp-for="Cantidad" class="InputEdit" />
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Precio" class="labelEdit"></label>
+                    <input asp-for="Precio" class="InputEdit" />
+                    <span asp-validation-for="Precio" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                        <input type="submit" value="Guardar" class="inputBuscador" id="btnEnvioEdit" />
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+        <div id="btnControl">
+            <div><partial name="../Home/BotonInicio.cshtml" /></div>
+            <div><partial name="../Home/BotonAtras.cshtml" /></div>
+            <div><partial name="../Home/BotonNuevo.cshtml" /></div>
+            <div><partial name="../Home/BotonEditar.cshtml" /></div>
+            <div><partial name="../Home/BotonBorrar.cshtml" /></div>
+        </div>
+
+</div>
