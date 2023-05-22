@@ -1,0 +1,73 @@
+﻿@model IEnumerable<DecoApp4.Models.Trabajadore>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="index">
+    <h1 class="tituloIndex">Trabajadores</h1>
+    <div class="buscadorIndex">
+        <form asp-action="Index">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="number" name="nom" id="nom" class="inputBuscador" />
+                <label>Telefono</label>
+                <input type="text" name="tlf" id="tlf" class="inputBuscador" />
+                <input type="submit" value="buscar" id="btnEnvioBuscador" class="inputBuscador" />
+            </div>
+        </form>
+    </div>
+    <div class="infoIndex" id="opDetalles">
+        <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Obra)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td onclick="mostrarDetalles(@item.Id, 'Trabajadores')" class="tbDetalle">
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td onclick="mostrarDetalles(@item.Id, 'Obras')" class="tbDetalle">
+                @Html.DisplayFor(modelItem => item.Obra.Direccion)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml" />
+        <partial name="../Home/BotonNuevo.cshtml" />
+    </div>
+</div>

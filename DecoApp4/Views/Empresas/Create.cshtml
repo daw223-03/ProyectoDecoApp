@@ -1,0 +1,67 @@
+﻿@model DecoApp4.Models.Empresa
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="crear">
+    <h1 class="tituloDetalle">Nueva Empresa: @Html.DisplayFor(model => model.Id)</h1>
+
+    <div class="formularioCreacion clienteCrear" id="opCreate">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="labelEdit"></label>
+                <input asp-for="Nombre" class="InputEdit" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cif" class="labelEdit"></label>
+                <input asp-for="Cif" class="InputEdit" />
+                <span asp-validation-for="Cif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono" class="labelEdit"></label>
+                <input asp-for="Telefono" class="InputEdit" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Direccion" class="labelEdit"></label>
+                <input asp-for="Direccion" class="InputEdit" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="labelEdit"></label>
+                <input asp-for="Email" class="InputEdit" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Poblacion" class="labelEdit"></label>
+                <input asp-for="Poblacion" class="InputEdit" />
+                <span asp-validation-for="Poblacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ciudad" class="labelEdit"></label>
+                <input asp-for="Ciudad" class="InputEdit" />
+                <span asp-validation-for="Ciudad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cp" class="labelEdit"></label>
+                <input asp-for="Cp" class="InputEdit" />
+                <span asp-validation-for="Cp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="inputBuscador" id="btnEnvioEdit" />
+            </div>
+        </form>
+    </div>
+
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml" />
+        <partial name="../Home/BotonAtras.cshtml" />
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<DecoApp4.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="index">
+    <h1 class="tituloIndex">Clientes</h1>
+    <div class="buscadorIndex">
+        <form asp-action="Index">
+
+                <label>Nombre</label>
+                <input type="text" name="nom" id="nom" class="inputBuscador" />
+                <label>Telefono</label>
+                <input type="text" name="tlf" id="tlf" class="inputBuscador" />
+                <input type="submit" value="buscar" id="btnEnvioBuscador" class="inputBuscador" />
+        </form>
+    </div>
+    <div class="infoIndex" id="opDetalles">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dni)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Telefono)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Direccion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Poblacion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ciudad)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cp)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td onclick="mostrarDetalles(@item.Id, 'Clientes')" class="tbDetalle">
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dni)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefono)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Direccion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Poblacion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ciudad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cp)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml" />
+        <partial name="../Home/BotonNuevo.cshtml" />
+    </div>
+</div>

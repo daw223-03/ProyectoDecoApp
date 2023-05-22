@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DecoApp4.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="index">
+    <h1 class="tituloIndex">Usuarios</h1>
+    <div class="buscadorIndex" >
+        <form asp-action="Index">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="number" name="nom" id="nom" class="inputBuscador" />
+                <label>User Name</label>
+                <input type="text" name="us" id="us" class="inputBuscador" />
+                <input type="submit" value="buscar" id="btnEnvioBuscador" class="inputBuscador" />
+            </div>
+        </form>
+    </div>
+    <div class="infoIndex" id="opDetalles">
+        <table class="table tablUser">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="trUser">
+            <td onclick="mostrarDetalles(@item.Id, 'Users')" class="tbDetalle">
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+                        <td class="passwd" onclick="pswd()">
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml" />
+        <partial name="../Home/BotonNuevo.cshtml" />
+    </div>
+</div>

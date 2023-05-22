@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div id="selectMes">
+    <button class="btnCambiarMes" id="btnCambiarMesMenos" onclick="CambiarMesMenos()"> < </button>
+        <label value=@ViewBag.mesId class="mesActual">@ViewBag.mesNo[@ViewBag.mesId]</label>
+    <button class="btnCambiarMes" id="btnCambiarMesMas" onclick="CambiarMesMas()"> > </button>
+        
+    <button class="btnCambiarMes" id="btnCambiarMes" style="width:8%;" onclick="crearMes()">BUSCAR</button>
+    </div>
+
+<div id="contenedorMes"></div>
+
+

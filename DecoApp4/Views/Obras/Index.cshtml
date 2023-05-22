@@ -1,0 +1,90 @@
+﻿@model IEnumerable<DecoApp4.Models.Obra>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="index">
+    <h1 class="tituloIndex">Obras</h1>
+
+    <div class="buscadorIndex">
+        <form asp-action="Index">
+            <div class="form-group">
+                <label>CP</label>
+                <input type="number" name="cp" id="cp" class="inputBuscador" />
+                <label>Direccion</label>
+                <input type="text" name="dir" id="dir" class="inputBuscador" />
+                <label>Cliente</label>
+                <input type="text" name="cliente" id="cliente" class="inputBuscador" />
+                <label>Fecha Inicial</label>
+                <input type="date" name="fechaInicial" id="fechaInicial" class="inputBuscador" />
+                <label>Fecha Final</label>
+                <input type="date" name="fechaFinal" id="fechaFinal" class="inputBuscador" />
+                <input type="submit" value="buscar" id="btnEnvioBuscador" class="inputBuscador" />
+            </div>
+        </form>
+    </div>
+    <div class="infoIndex" id="opDetalles">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Direccion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cp)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaInicio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FechaFinal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cliente)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Factura)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Estado)
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td onclick="mostrarDetalles(@item.Id, 'Obras')" class="tbDetalle">
+                            @Html.DisplayFor(modelItem => item.Direccion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cp)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaInicio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaFinal)
+                        </td>
+                        <td onclick="mostrarDetalles(@item.Id, 'Clientes')" class="tbDetalle">
+                            @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+                        </td>
+                        <td onclick="mostrarDetalles(@item.Id, 'Facturas')" class="tbDetalle">
+                            @Html.DisplayFor(modelItem => item.Factura.NombreFactura)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estado.Nombre)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml" />
+        <partial name="../Home/BotonNuevo.cshtml" />
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@model DecoApp4.Models.Cita
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="crear">
+    <h1 class="tituloDetalle">Nueva cita:@Html.DisplayFor(model => model.Id)</h1>
+
+    <div class="formularioCreacion" id="opCreate">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="labelEdit"></label>
+                <input asp-for="Fecha" class="InputEdit" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hora" class="labelEdit"></label>
+                <input asp-for="Hora" class="InputEdit" />
+                <span asp-validation-for="Hora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comentario" class="labelEdit"></label>
+                <input asp-for="Comentario" class="InputEdit" />
+                <span asp-validation-for="Comentario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente" class="labelEdit"></label>
+                <input type="text" name="inputCliente" id="inputCliente" class="InputEdit" onclick="autocompletarCliente('Clientes', '#inputCliente','#IdCliente')">
+                <input type="hidden" id="IdCliente" name="IdCliente">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="inputBuscador" id="btnEnvioEdit" />
+            </div>
+        </form>
+    </div>
+
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml" />
+        <partial name="../Home/BotonAtras.cshtml" />
+    </div>
+</div>
+@section Scripts {
+    @{
+        <partial name="../Shared/_ValidationScriptsPartial.cshtml" />
+    }
+}

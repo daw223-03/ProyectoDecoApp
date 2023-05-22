@@ -1,0 +1,23 @@
+﻿@model IEnumerable<DecoApp4.Models.Cita>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="contenedorHome">
+    <div id="contenedorBtnPrincipal">
+        <button class="btnPrincipal" onclick="cambiarPagina('Clientes')">Cliente</button>
+        <button class="btnPrincipal" onclick="cambiarPagina('Citas')">Citas</button>
+        <button class="btnPrincipal" onclick="cambiarPagina('Facturas')">Facturas</button>
+        <button class="btnPrincipal" onclick="cambiarPagina('Materiales')">Materiales</button>
+        <button class="btnPrincipal" onclick="cambiarPagina('Trabajadores')">Trabajadores</button>
+        <button class="btnPrincipal" onclick="cambiarPagina('Obras')">Obras</button>
+        <button class="btnPrincipal" id="btnEditar" onclick="mostrarDesplegable()">Ajustes</button>
+        <button class="btnPrincipal" onclick="cambiarPagina('Calendario')">Calendario</button>
+
+        <div class="contenedorDesplegable">
+            <!--<label class="desplegable"  onclick="cambiarPagina('Users')">Users</label>-->
+		<label class="desplegable" onclick="cambiarPagina('Empresas')">Empresas</label>
+		<label class="desplegable"  onclick="cambiarPagina('Estadoes')">Estados</label>
+		</div>
+    </div>
+    <div id="contenedorCitasHome"><partial name="CitasActuales"/></div>

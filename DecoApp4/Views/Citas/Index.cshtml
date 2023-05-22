@@ -1,0 +1,87 @@
+﻿@model IEnumerable<DecoApp4.Models.Cita>
+
+@{
+    ViewData["Title"] = "Index";
+    TimeSpan aux = new TimeSpan();
+}
+<div class="index">
+    <h1 class="tituloIndex">Citas</h1>
+    <div class="buscadorIndex">
+        <form asp-action="Index">
+            <label>Id</label>
+            <input type="number" name="id" id="id" class="inputBuscador" />
+                <label>Nombre</label>
+            <input type="text" name="nom" id="nom" class="inputBuscador" />
+                <label>Fecha Inicial</label>
+            <input type="date" name="fechaInicial" id="fechaInicial" class="inputBuscador" />
+                <label>Fecha Final</label>
+            <input type="date" name="fechaFinal" id="fechaFinal" class="inputBuscador" />
+            <input type="submit" value="buscar" id="btnEnvioBuscador" class="inputBuscador" />
+        </form>
+    </div>
+    <div class="infoIndex" id="opDetalles">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Hora)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Comentario)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cliente)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class=@item.Id>
+                        <td onclick="mostrarDetalles(@item.Id, 'Citas')" class="tbDetalle">
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha)
+                        </td>
+                        <td>
+                            @if(item.Hora == aux)
+                            {
+                                
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.Hora)
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comentario)
+                        </td>
+                        @if (item.Cliente != null)
+                        {
+                            <td onclick="mostrarDetalles(@item.Cliente.Id, 'Clientes')" class="tbDetalle">
+                                @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div id="btnControl">
+        <partial name="../Home/BotonInicio.cshtml"/>
+        <partial name="../Home/BotonNuevo.cshtml" />
+    </div>
+</div>
