@@ -82,14 +82,14 @@ public partial class DecoappContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("CP");
             entity.Property(e => e.Direccion)
-                .HasMaxLength(40)
+                .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.Dni)
                 .HasMaxLength(15)
                 .IsUnicode(false)
                 .HasColumnName("DNI");
             entity.Property(e => e.Email)
-                .HasMaxLength(20)
+                .HasMaxLength(40)
                 .IsUnicode(false);
             entity.Property(e => e.Nombre)
                 .HasMaxLength(50)
@@ -120,10 +120,10 @@ public partial class DecoappContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("CP");
             entity.Property(e => e.Direccion)
-                .HasMaxLength(40)
+                .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.Email)
-                .HasMaxLength(20)
+                .HasMaxLength(40)
                 .IsUnicode(false);
             entity.Property(e => e.Nombre)
                 .HasMaxLength(50)
@@ -144,7 +144,7 @@ public partial class DecoappContext : DbContext
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Nombre)
-                .HasMaxLength(20)
+                .HasMaxLength(30)
                 .IsUnicode(false);
         });
 
@@ -178,7 +178,7 @@ public partial class DecoappContext : DbContext
             entity.HasKey(e => e.Id).HasName("PK__Material__3214EC0777AD1907");
 
             entity.Property(e => e.Nombre)
-                .HasMaxLength(20)
+                .HasMaxLength(30)
                 .IsUnicode(false);
             entity.Property(e => e.Precio).HasColumnType("decimal(18, 0)");
 
@@ -196,7 +196,7 @@ public partial class DecoappContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("CP");
             entity.Property(e => e.Direccion)
-                .HasMaxLength(40)
+                .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.FechaFinal).HasColumnType("datetime");
             entity.Property(e => e.FechaInicio).HasColumnType("datetime");
@@ -243,17 +243,17 @@ public partial class DecoappContext : DbContext
             entity.HasKey(e => e.Id).HasName("PK__Trabajad__3214EC0752B4A0AC");
 
             entity.Property(e => e.Direccion)
-                .HasMaxLength(40)
+                .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.Dni)
                 .HasMaxLength(15)
                 .IsUnicode(false)
                 .HasColumnName("DNI");
             entity.Property(e => e.Email)
-                .HasMaxLength(20)
+                .HasMaxLength(40)
                 .IsUnicode(false);
             entity.Property(e => e.Nombre)
-                .HasMaxLength(20)
+                .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.Telefono)
                 .HasMaxLength(12)
