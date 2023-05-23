@@ -13,29 +13,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DecoappContext>(options =>
          options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConection")));
 var app = builder.Build();
-/*using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
-{
-    var logger = serviceScope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-    var db = serviceScope.ServiceProvider.GetRequiredService<DecoappContext>().Database;
 
-    logger.LogInformation("Migrating database...");
-
-    while (!db.CanConnect())
-    {
-        logger.LogInformation("Database not ready yet; waiting...");
-        Thread.Sleep(1000);
-    }
-
-    try
-    {
-        serviceScope.ServiceProvider.GetRequiredService<DecoappContext>().Database.Migrate();
-        logger.LogInformation("Database migrated successfully.");
-    }
-    catch (Exception ex)
-    {
-        logger.LogError(ex, "An error occurred while migrating the database.");
-    }
-}*/
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
