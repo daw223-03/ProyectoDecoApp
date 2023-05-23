@@ -338,81 +338,6 @@ function editTarea2(id) {
 
 //ANADIR CAMPO DE TAREA EN FACTURAS- ANADIR TAREA
 function addTareaLista() {
-   /* var contenedor = document.getElementById("tareasFacturas")
-    var cont = document.createElement("div")
-    cont.className = "tarea"
-
-    var des = document.createElement("label")
-    des.className = "labelEdit"
-    des.textContent = "Descripcion"
-    var desInp = document.createElement("input")
-    desInp.className = "descripcion InputEdit"
-    desInp.name = "Descripcion"
-    desInp.type = "text"
-
-    var pre = document.createElement("label")
-    pre.className = "labelEdit"
-    pre.textContent = "Precio"
-    var preInp = document.createElement("input")
-    preInp.className = "precio InputEdit numE"
-    preInp.name = "Precio"
-    preInp.type = "number"
-
-    var can = document.createElement("label")
-    can.className = "labelEdit"
-    can.textContent = "Cantidad"
-    var canInp = document.createElement("input")
-    canInp.className = "cantidad InputEdit numE"
-    canInp.name = "Cantidad"
-    canInp.type = "number"
-
-    var d = document.createElement("label")
-    d.className = "labelEdit"
-    d.textContent = "Descuento"
-    var dInp = document.createElement("input")
-    dInp.className = "descuento InputEdit numE"
-    dInp.name = "Descuento"
-    dInp.type = "number"
-
-    var es = document.createElement("label")
-    es.className = "labelEdit"
-    es.textContent = "Estado"
-    var esInp = document.createElement("input")
-    esInp.className = "estado InputEdit"
-    esInp.name = "Estado"
-    esInp.type = "text"
-
-    var es = document.createElement("label")
-    es.className = "labelEdit"
-    es.textContent = "Estado"
-    var esInp = document.createElement("input")
-    esInp.className = "InputEdit"
-    esInp.name = "est"
-    esInp.id = "est"
-    esInp.type = "text"
-    var esInp2 = document.createElement("input")
-    esInp2.type = "hidden"
-    esInp2.name = "Estado"
-    esInp2.id = "Estado"
-    esInp.addEventListener("click", function (e) {
-        e.preventDefault()
-        autocompletarCliente('Estado', '#est', '#Estado')
-    })
-
-
-
-    cont.appendChild(des)
-    cont.appendChild(desInp)
-    cont.appendChild(pre)
-    cont.appendChild(preInp)
-    cont.appendChild(can)
-    cont.appendChild(canInp)
-    cont.appendChild(d)
-    cont.appendChild(dInp)
-    cont.appendChild(es)
-    cont.appendChild(esInp)
-    cont.appendChild(esInp2)
-    //contenedor.append(cont)*/
     var tarea = document.querySelector(".tarea")
     var clon = tarea.cloneNode(true);
     for (var i = 0; i < clon.childNodes.length; i++) {
@@ -468,7 +393,7 @@ function borrarTarea(id, idd) {
                 $(this).dialog("close");
             }
         }
-    });
+    }).prev(".ui-dialog-titlebar").css("background", "#8E2727").css("border", "2px solid black");
 }
 
 function imprimir(id, plantilla) {
