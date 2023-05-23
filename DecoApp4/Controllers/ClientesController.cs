@@ -149,30 +149,30 @@ namespace DecoApp4.Controllers
                 if (_context.Obras.Any(e => e.IdCliente == id))
                 {
                     var obras = _context.Obras.Where(f => f.IdCliente == id).ToList();
-                    foreach (var item in obras)
+                    for (var i = 0; i < obras.Count; i++)
                     {
-                        item.IdCliente = null;
-                        _context.Update(item);
+                        obras[i].IdCliente = null;
+                        _context.Update(obras[i]);
                         _context.SaveChanges();
                     }
                 }
                 if (_context.Facturas.Any(e => e.IdCliente == id))
                 {
                     var factura = _context.Facturas.Where(f => f.IdCliente == id).ToList();
-                    foreach (var item in factura)
+                    for(var i=0;i<factura.Count;i++)
                     {
-                        item.IdCliente = null;
-                        _context.Update(factura);
+                        factura[i].IdCliente = null;
+                        _context.Update(factura[i]);
                         _context.SaveChanges();
                     }
                 }
                 if (_context.Citas.Any(e => e.IdCliente == id))
                 {
                     var citas = _context.Citas.Where(f => f.IdCliente == id).ToList();
-                    foreach (var item in citas)
+                    for (var i = 0; i < citas.Count; i++)
                     {
-                        item.IdCliente = null;
-                        _context.Update(item);
+                        citas[i].IdCliente = null;
+                        _context.Update(citas[i]);
                         _context.SaveChanges();
                     }
                 }
