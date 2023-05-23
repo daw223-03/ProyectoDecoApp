@@ -169,10 +169,13 @@ namespace DecoApp4.Controllers
             {
                 if (_context.Trabajadores.Any(e => e.ObraActiva == id))
                 {
-                    var trabajador = _context.Trabajadores.First(f => f.ObraActiva == id);
-                    trabajador.ObraActiva = null;
-                    _context.Update(trabajador);
-                    _context.SaveChanges();
+                    var trabajador = _context.Trabajadores.Where(f => f.ObraActiva == id).ToList();
+                    for (var i = 0; i < trabajador.Count; i++)
+                    {
+                        trabajador[i].ObraActiva = null;
+                        _context.Update(trabajador[i]);
+                        _context.SaveChanges();
+                    }
                 }
                 var obra = _context.Obras.Find(id);
                 if (obra != null)
