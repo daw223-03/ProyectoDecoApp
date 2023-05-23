@@ -162,7 +162,7 @@ namespace DecoApp4.Controllers
         {
             try
             {
-                var factura = _context.Facturas.Find(id);
+         var factura = _context.Facturas.Find(id);
                 if (_context.Obras.Any(e => e.IdFactura == id))
                 {
                     var obras = _context.Obras.First(f => f.IdFactura == id);
@@ -174,9 +174,9 @@ namespace DecoApp4.Controllers
                 if (_context.Tareas.Any(e => e.IdFactura == id))
                 {
                     var tareas = _context.Tareas.Where(f => f.IdFactura == id).ToList();
-                    foreach (var tarea in tareas)
+                    for (var i = 0; i < tareas.Count; i++)
                     {
-                        _context.Tareas.Remove(tarea);
+                        _context.Tareas.Remove(tareas[i]);
                         _context.SaveChanges();
                     }
 
