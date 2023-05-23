@@ -12,10 +12,10 @@ public partial class Cliente
     [Required(ErrorMessage = "Campo obligatorio")]
     public string Nombre { get; set; } = null!;
     [Required(ErrorMessage = "Campo obligatorio")]
-    [StringLength(12)]
+    [StringLength(9)]
     public string Dni { get; set; } = null!;
     [Required(ErrorMessage = "Campo obligatorio")]
-    [StringLength(10)]
+    [StringLength(9)]
     public string Telefono { get; set; } = null!;
 
     public string? Direccion { get; set; }
