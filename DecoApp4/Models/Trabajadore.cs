@@ -10,8 +10,10 @@ public partial class Trabajadore
     [Required(ErrorMessage = "Campo obligatorio")]
     public string Nombre { get; set; } = null!;
     [Required(ErrorMessage = "Campo obligatorio")]
+    [StringLength(9)]
     public string Dni { get; set; } = null!;
     [Required(ErrorMessage = "Campo obligatorio")]
+    [StringLength(9)]
     public string Telefono { get; set; } = null!;
 
     public string? Direccion { get; set; }
