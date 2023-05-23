@@ -793,3 +793,11 @@ html::-webkit-scrollbar-thumb {
 html::-webkit-scrollbar-track {
     border-radius: 10px;
 }
+
+
+/*Estado*/
+.infoIndexEstado {
+    padding-left: 5%;
+    padding-top: 5%;
+    overflow:auto;
+}
