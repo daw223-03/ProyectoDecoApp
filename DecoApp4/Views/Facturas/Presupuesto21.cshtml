@@ -84,7 +84,20 @@
                         
                         @foreach (var item in Model.Tareas)
                         {
-                            total = total + (float)item.Precio;
+                           if(item.Cantidad != 0){
+                                if(item.Descuento != 0){
+                                    total = total + ((((float)item.Precio)-(((float)item.Precio*(float)item.Descuento)/100))*(float)item.Cantidad);
+                                }else{
+                                    total = total + ((float)item.Precio*(float)item.Cantidad);
+                                }
+
+                            }else{
+                                if(item.Descuento != 0){
+                                    total = total + (((float)item.Precio)-(((float)item.Precio*(float)item.Descuento)/100));
+                                }else{
+                                    total = total + (float)item.Precio;
+                                }
+                            }
                             i++;
                         <tr height="25px">
                                 <td width="10%" style="border-right: 1px dotted grey;">
