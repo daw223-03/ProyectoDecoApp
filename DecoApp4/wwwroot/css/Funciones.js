@@ -141,10 +141,7 @@ function mostrarFacturas(id) {
                         cont.appendChild(nom)
                         cont.appendChild(inf)
                         contenedor.appendChild(cont)
-                        cont.addEventListener("click", function (e) {
-                            e.preventDefault();
-                            mostrarDetalles(nom.textContent, 'Facturas')
-                        })
+                        cont.addEventListener("click", mostrarDetalles.bind(this,nom.textContent, 'Facturas'))
                         }
                         $("#clienteFacturas").toggle();
                     }
@@ -179,10 +176,7 @@ function mostrarCitas(id) {
                     cont.appendChild(nom)
                     cont.appendChild(inf)
                     contenedor.appendChild(cont)
-                    cont.addEventListener("click", function (e) {
-                        e.preventDefault();
-                        mostrarDetalles(nom.textContent, 'Citas')
-                    })
+                    cont.addEventListener("click", mostrarDetalles.bind(this,nom.textContent, 'Citas'))
                 }
                 $("#clienteCitas").toggle();
             }
@@ -213,10 +207,7 @@ function mostrarObras(id) {
                     cont.appendChild(nom)
                     cont.appendChild(inf)
                     contenedor.appendChild(cont)
-                    cont.addEventListener("click", function (e) {
-                        e.preventDefault();
-                        mostrarDetalles(nom.textContent, 'Obras')
-                    })
+                    cont.addEventListener("click", mostrarDetalles.bind(this,nom.textContent, 'Obras'))
                 }
                 $("#clienteObras").toggle();
             }
@@ -458,9 +449,7 @@ function obrasCalendario(mes) {
                 label.className = 'labelCalendario ObraCalendario';
                 label.id = data[i].id;
                 var j = data[i].id;
-                label.addEventListener("click", function (data) {
-                    mostrarDetalles(j, "Obras");
-                });
+                label.addEventListener("click", mostrarDetalles.bind(this,j, "Obras"));
                 contI.appendChild(label);
 
                 var contF = document.getElementById(diaF)
@@ -470,9 +459,7 @@ function obrasCalendario(mes) {
                 label.className = 'labelCalendario ObraCalendario';
                 label.id = data[i].id;
                 var j = data[i].id;
-                label.addEventListener("click", function (data) {
-                    mostrarDetalles(j, "Obras");
-                });
+                label.addEventListener("click", mostrarDetalles.bind(this,j, "Obras"));
                 contF.appendChild(label);
             }
         }
@@ -499,9 +486,7 @@ function citasCalendario(mes) {
                 label.className = 'labelCalendario CitaCalendario';
                 label.id = data[i].id;
                 var j = data[i].id;
-                label.addEventListener("click", function (data) {
-                    mostrarDetalles(j, "Citas");
-                });
+                label.addEventListener("click", mostrarDetalles.bind(this,j, "Citas"));
                 cont.appendChild(label);
             }
 
