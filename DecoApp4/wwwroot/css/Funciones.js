@@ -249,10 +249,7 @@ function editTarea2(id) {
                     var cont = document.createElement("div")
                 cont.className = "tarea"
                 cont.id = data[i].id
-                cont.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    borrarTarea(cont.id, id)
-                })
+                cont.addEventListener("click", borrarTarea.bind(this,cont.id, id))
                     
                     var des = document.createElement("label")
                     des.className = "labelEdit"
